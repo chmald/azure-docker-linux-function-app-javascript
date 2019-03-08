@@ -1,5 +1,5 @@
-sudo docker build -t sodimac-mobile-functions:latest . 
+docker build . -t node-function:v1
 
-sudo docker run -p 8080:80 sodimac-mobile-functions:latest
+docker run -it -p 8080:80 -e FUNCTIONS_WORKER_RUNTIME="node" -e AzureWebJobsStorage="StorageConnectionString" node-function:v1
 
-http://localhost:8080/
+http://localhost:8080/api/tablestoragetest?name=SomethingToPass
